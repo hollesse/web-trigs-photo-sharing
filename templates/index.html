@@ -15,37 +15,21 @@
     </header>
     <main class=container>
       <div id="author" class="d-flex mt-3">
-        <img src="static/Avatar.jpg" style="width: 8rem;" class="rounded-circle" alt="Joshua Töpfer">
+        <img src="{{ user.src_url }}" style="width: 8rem;" class="rounded-circle" alt="{{ user.name }}">
         <div class="mx-3 my-auto">
-          <p class="h1">Joshua Töpfer</p>
-          <p class="h5">learning CSS</p>
+          <p class="h1">{{ user.name }}</p>
+          <p class="h5">{{ user.description }}</p>
         </div>
       </div>
       <div id=photos class="d-flex flex-wrap">
+        {% for photo in photos %}
         <div class="card my-4 mx-auto" style="width: 22rem;">
-          <img src="static/Berlin.jpg" class="card-img-top" alt="Photo of Berlin">
+          <img src="{{ photo.src_url }}" class="card-img-top">
           <div class="card-body">
-            <p class="card-text">Berlin at sunset! #professionalphotograph</p>
+            <p class="card-text">{{ photo.description }}</p>
           </div>
         </div>
-        <div class="card my-4 mx-auto" style="width: 22rem;">
-          <img src="static/Frankfurt.jpg" class="card-img-top" alt="Photo of Frankfurt at night">
-          <div class="card-body">
-            <p class="card-text">Frankfurt am Main at Night!</p>
-          </div>
-        </div>
-        <div class="card my-4 mx-auto" style="width: 22rem;">
-          <img src="static/Limburg.jpg" class="card-img-top" alt="Limburger Dom">
-          <div class="card-body">
-            <p class="card-text">Limburger Dom #droneshoot</p>
-          </div>
-        </div>
-        <div class="card my-4 mx-auto" style="width: 22rem;">
-          <img src="static/Mannheim.jpg" class="card-img-top" alt="Mannheimer Wasserturm">
-          <div class="card-body">
-            <p class="card-text">Mannheimer Wasserturm #AugustAnlage</p>
-          </div>
-        </div>
+        {% endfor %}
       </div>
     </main>
     <footer class="position-fixed bottom-0 start-0 end-0">
